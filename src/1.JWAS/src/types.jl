@@ -163,6 +163,7 @@ mutable struct MCMCinfo
     seed
     double_precision
     output_folder
+    encryption
 end
 ################################################################################
 #the class MME is shown below with members for models, mixed model equations...
@@ -253,6 +254,7 @@ mutable struct MME
     incomplete_omics
 
     traits_type   #by default all traits are continuous
+    thresholds    #thresholds for categorial&binary traits. Dictionary: 1=>[-Inf,0,Inf], where 1 means the 1st trait
 
     function MME(nModels,modelVec,modelTerms,dict,lhsVec,R,ν)
         if nModels == 1
@@ -279,6 +281,6 @@ mutable struct MME
                    false,false,false,
                    false,
                    false,false,1.0,false,false,false,false,false,1.0/sqrt(nModels),false,false,
-                   repeat(["continuous"],nModels))
+                   repeat(["continuous"],nModels),Dict())
     end
 end
