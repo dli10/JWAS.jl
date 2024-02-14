@@ -90,6 +90,7 @@ export dataset
             mega_trait                      = false,
             missing_phenotypes              = true,
             constraint                      = false,
+            encryption                      = false,
             #Genomic Prediction
             outputEBV                       = true,
             output_heritability             = true,
