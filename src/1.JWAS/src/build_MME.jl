@@ -351,7 +351,7 @@ function getMME(mme::MME, df::DataFrame)
     #Data encryption: remove very small values in Lhs
     if mme.MCMCinfo.encryption==true
       printstyled("Encryption: set zeros in mmeLhs. \n",bold=false,color=:green)
-      droptol!(mme.mmeLhs, 1e-10)
+      droptol!(mme.mmeLhs, 1e-5)
     end
 
     #Random effects parts in MME
